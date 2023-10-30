@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/konva@9/konva.min.js"></script>
+
+</head>
+<body>
+    <!-- <div style="width: 300px; background: #000; margin: 0 auto;">
+        <img src="white-tee.png" alt="" srcset="">
+
+    </div> -->
+    <div id="container" style="background-color: red; width: 250px; height: 300px; background-image: url('white-tee.png'); background-size: cover; background-position: center; ">
+
+    </div>
+
+    <script>
+        var width = window.innerWidth;
+      var height = window.innerHeight;
+
+      var stage = new Konva.Stage({
+        container: 'container',
+        width: 300,
+        height: 80,
+      });
+
+      var layer = new Konva.Layer();
+      stage.add(layer);
+
+      Konva.Image.fromURL('ddd.png', function (darthNode) {
+        darthNode.setAttrs({
+          x: 0,
+          y: 0,
+          scaleX: 0.5,
+          scaleY: 0.5,
+          cornerRadius: 20,
+          draggable: true,
+        });
+        layer.add(darthNode);
+      });
+
+      var simpleText = new Konva.Text({
+        x: 0,
+        y: 0,
+        text: 'Simple Text',
+        fontSize: 30,
+        fontFamily: 'Calibri',
+        fill: 'green',
+        draggable: true,
+      });
+
+      simpleText.on('mouseover', function () {
+        document.body.style.cursor = 'pointer';
+      });
+      simpleText.on('mouseout', function () {
+        document.body.style.cursor = 'default';
+      });
+    //   simpleText.offsetX(simpleText.width() / 2);
+      layer.add(simpleText);
+
+    </script>
+</body>
+
+</html>
